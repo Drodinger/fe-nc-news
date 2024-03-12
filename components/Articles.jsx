@@ -1,12 +1,16 @@
-import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ArticlesList from './ArticlesList.jsx';
+import TopicLinks from './TopicLinks.jsx';
 
 
 export default function Articles() {
     const [searchParams, setSearchParams] = useSearchParams();
 
-    return (
-        <ArticlesList topic={searchParams.get("topic")}/>
-    )
+        return (
+            <>
+                <h1>{searchParams.get("topic")} articles</h1>
+                <TopicLinks />
+                <ArticlesList topic={searchParams.get("topic")}/>
+            </>
+        )
 }
