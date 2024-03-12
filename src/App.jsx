@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Articles from '../components/Articles.jsx'
+import Articles from '../components/Articles.jsx';
+import IndividualArticleContainer from '../components/IndividualArticleContainer.jsx';
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             <Routes>
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/articles?topic=" element={<Articles />} />
+                <Route path="/articles/:article_id" element={<IndividualArticleContainer />}/>
             </Routes>
         </>
     )

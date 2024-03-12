@@ -24,7 +24,7 @@ export default function ArticlesList(topic) {
                 <ul>
                     {
                         articles.map((article) => 
-                                <li className="articles-list-item" key={article.article_id}>
+                                <div className="articles-list-item" key={article.article_id}>
                                 <h2>{article.title}</h2>
                                 <div className="articles-list-item-details">
                                     <p>{new Date(article.created_at).toUTCString()}</p>
@@ -32,7 +32,10 @@ export default function ArticlesList(topic) {
                                     <p>{article.votes} votes</p>
                                     <p>{article.comment_count} comments</p>
                                 </div>
-                                </li>
+                                <a href={`http://localhost:5173/articles/${article.article_id}`}>
+                                    <button >View article</button>
+                                </a>
+                                </div>
                         )
                     }
                 </ul>
