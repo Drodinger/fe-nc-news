@@ -12,7 +12,8 @@ export default function ArticlesList(topic) {
                 setArticles(res.data.articles);
                 setIsLoading(false);
             })
-    }, [])
+            .catch((err) => err);
+    }, [topic])
 
     if (isLoading) {
         return (

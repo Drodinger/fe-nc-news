@@ -12,6 +12,7 @@ export default function IndividualArticleComments(articleID) {
                 setComments(res.data.comments);
                 setIsLoading(false);
             })
+            .catch((err) => err);
     }, [])
 
     
@@ -25,11 +26,12 @@ export default function IndividualArticleComments(articleID) {
     } else {
         return (
             <>
+                <div className="individual-article-comments-section" >
                 <h3>Comments</h3>
                 <p>{comments.length} comments</p>
                 {
                     comments.map((comment) => 
-                        <div className="individual-comment" key={comment.comment_id}>
+                        <div className="individual-article-comment" key={comment.comment_id}>
                             <div className="comment-details">
                                 <p>{comment.author}</p>
                                 <p>{new Date(comment.created_at).toUTCString()}</p>
@@ -39,6 +41,7 @@ export default function IndividualArticleComments(articleID) {
                         </div>
                     )
                 }
+                </div>
             </>
         )
     }
