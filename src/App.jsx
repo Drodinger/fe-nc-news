@@ -6,7 +6,7 @@ import IndividualArticleContainer from '../components/IndividualArticleContainer
 function App() {
     return (
         <>
-            <h1>Channel 5 news</h1>
+            <h1>NC News</h1>
             <Routes>
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/articles?topic=" element={<Articles />} />
