@@ -8,7 +8,7 @@ export default function Articles() {
 
         return (
             <>
-                <h1>{searchParams.get("topic")} articles</h1>
+                <h2>{searchParams.get("topic")} articles</h2>
                 <TopicLinks />
                 <ArticlesList topic={searchParams.get("topic")}/>
             </>
