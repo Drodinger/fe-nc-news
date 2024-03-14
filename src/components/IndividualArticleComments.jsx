@@ -31,7 +31,7 @@ export default function IndividualArticleComments(articleID) {
                 <p>{comments.length} comments</p>
                 {
                     comments.map((comment) => 
-                        <div className="individual-article-comment" key={comment.comment_id}>
+                        <div className="list-item-container" key={comment.comment_id}>
                             <div className="comment-details">
                                 <p>{comment.author}</p>
                                 <p>{new Date(comment.created_at).toUTCString()}</p>

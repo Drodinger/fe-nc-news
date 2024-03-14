@@ -2,8 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function TopicLinks(props) {
-    const { setTopic } = props;
+export default function TopicLinks() {
     const [topics, setTopics] = useState([]);
 
     useEffect(() => {
@@ -21,11 +20,11 @@ export default function TopicLinks(props) {
         )
     } else {
         return (
-                <div className="topic-links">
-                    <Link to={""} relative="path" key="all">all</Link>
+                <div className="topics-list">
+                    <Link to={""} className="topic-link" relative="path" key="all"><button>all</button></Link>
                     {
                         topics.map((topic) => {
-                            return <Link to={`?topic=${topic}`} relative="path" key={topic}>{topic}</Link>
+                            return <Link to={`?topic=${topic}`} className="topic-link" relative="path" key={topic}><button>{topic}</button></Link>
                         })
                     }
                 </div>
