@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
-import ArticlesList from './ArticlesList.jsx';
-import TopicLinks from './TopicLinks.jsx';
+import ArticlesList from '../ArticlesList/ArticlesList.jsx';
+import TopicLinks from '../TopicLinks/TopicLinks.jsx';
 
 
 export default function Articles() {
