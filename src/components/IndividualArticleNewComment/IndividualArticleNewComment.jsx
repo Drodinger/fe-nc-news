@@ -18,7 +18,6 @@ export default function IndividualArticleNewComment(props) {
     }
 
     function displayFormValidationErr() {
-        console.log(formValidationErr.current);
         if (formValidationErr.current) {
             formValidationErr.current.setAttribute('class', 'error');
             setTimeout(() => {
