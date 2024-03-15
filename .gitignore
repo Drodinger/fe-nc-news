@@ -25,3 +25,6 @@ dist-ssr
 
 # Notes
 *.txt
+
+# Local Netlify folder
+.netlify
