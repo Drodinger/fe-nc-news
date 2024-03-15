@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
-export default function ArticlesList(topic) {
-    const [articles, setArticles] = useState([]);
+export default function ArticlesList(props) {
     const [isLoading, setIsLoading] = useState(true);
+    const { topic, articles, setArticles } = props;
 
     useEffect(() => {
-        axios.get(topic.topic ? `https://channel-5-news.onrender.com/api/articles?topic=${topic.topic}` : "https://channel-5-news.onrender.com/api/articles")
+        axios.get(topic ? `https://channel-5-news.onrender.com/api/articles?topic=${topic}` : "https://channel-5-news.onrender.com/api/articles")
             .then((res) => {
                 setArticles(res.data.articles);
                 setIsLoading(false);
