@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import IndividualArticleVotes from './IndividualArticleVotes.jsx';
+import IndividualArticleVotes from '../IndividualArticleVotes/IndividualArticleVotes.jsx';
 
 export default function IndividualArticle(props) {
     const [article, setArticle] = useState({});
