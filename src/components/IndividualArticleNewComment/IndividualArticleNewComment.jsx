@@ -3,7 +3,7 @@ import { UserContext } from '../../contexts/User.jsx';
 import axios from 'axios';
 
 export default function IndividualArticleNewComment(props) {
-    const { articleID, setNewComment } = props;
+    const { articleID, setNewComment, waitForAsync, setWaitForAsync } = props;
     const [isVisible, setIsVisible] = useState(false);
     const [isSending, setIsSending] = useState(false);
     const [isCommentPostErr, setIsCommentPostErr] = useState(false);
@@ -47,19 +47,24 @@ export default function IndividualArticleNewComment(props) {
         if (e.target[0].value === "") {
             displayFormValidationErr();
             return;
+        } else if (waitForAsync) {
+           return; 
         }
+        setWaitForAsync(true);
         setIsSending(true);
         axios.post(`https://channel-5-news.onrender.com/api/articles/${articleID}/comments`, { 
             body: e.target[0].value,
             user: user,
         })
             .then((res) => {
+                setWaitForAsync(false);
                 setIsSending(false);
                 setIsVisible(false);
                 setNewComment(true);
                 setIsCommentPostSuccess(true);
             })
             .catch((err) => {
+                setWaitForAsync(false);
                 console.log(err)
                 setIsVisible(false);
                 setIsSending(false);

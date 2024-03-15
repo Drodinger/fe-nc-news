@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 export default function IndividualArticleVotes(props) {
-    const { articleID, initialVotes } = props;
+    const { articleID, initialVotes, waitForAsync, setWaitForAsync } = props;
     const voteErr = useRef(null);
     const [userVote, setUserVote] = useState(0);
     const [prevUserVote, setPrevUserVote] = useState(0);
@@ -16,7 +16,10 @@ export default function IndividualArticleVotes(props) {
     }
 
     function handleUserVote(e) {
-        if (e.target.innerText === "+") {
+        if (waitForAsync) {
+            return;
+        }
+        else if (e.target.innerText === "+") {
             if (userVote === 1) {
                 setUserVote(0);
             } else {
@@ -36,12 +39,15 @@ export default function IndividualArticleVotes(props) {
         const state = userVote;
         const voteDelta = state - prevState;
         if (voteDelta) {
+            setWaitForAsync(true);
             setVotes((currentVotes) => currentVotes + voteDelta);
             axios.patch(`https://channel-5-news.onrender.com/api/articles/${articleID}`, { inc_votes: voteDelta})
                 .then((res) => {
+                    setWaitForAsync(false);
                     setPrevUserVote(state);
                 })
                 .catch((err) => {
+                    setWaitForAsync(false);
                     setVotes((currentVotes) => currentVotes - voteDelta);
                     setUserVote(prevState);
                     showVoteError();

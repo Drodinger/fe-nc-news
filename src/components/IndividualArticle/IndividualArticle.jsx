@@ -5,7 +5,7 @@ import IndividualArticleVotes from '../IndividualArticleVotes/IndividualArticleV
 export default function IndividualArticle(props) {
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const { articleID } = props;
+    const { articleID, waitForAsync, setWaitForAsync } = props;
     const { votes } = article;
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function IndividualArticle(props) {
                 <p>{new Date(article.created_at).toUTCString()}</p>
                 <p>Author: {article.author}</p>
                 <p>Topic: {article.topic}</p>
-                <IndividualArticleVotes articleID = { articleID } initialVotes={ votes }/>
+                <IndividualArticleVotes articleID = { articleID } initialVotes={ votes } waitForAsync={waitForAsync} setWaitForAsync={setWaitForAsync}/>
             </div>
             <img src={article.article_img_url} />
             <p>{article.body}</p>
