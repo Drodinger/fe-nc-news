@@ -19,7 +19,7 @@ export default function Articles() {
 
         return (
             <>
-                <h2>{searchParams.get("topic")} articles</h2>
+                <h2>{searchParams.get("topic")}Articles</h2>
                 <TopicLinks />
                 <SortByDropdown topic={searchParams.get("topic")} articles={articles} setArticles={setArticles} sortCategories={sortCategories}/>
                 <ArticlesList topic={searchParams.get("topic")} articles={articles} setArticles={setArticles}/>

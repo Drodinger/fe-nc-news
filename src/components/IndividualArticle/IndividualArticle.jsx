@@ -22,15 +22,21 @@ export default function IndividualArticle(props) {
     } else {
         return (
             <>
-            <h1>{article.title}</h1>
-            <div>
-                <p>{new Date(article.created_at).toUTCString()}</p>
-                <p>Author: {article.author}</p>
-                <p>Topic: {article.topic}</p>
-                <IndividualArticleVotes articleID = { articleID } initialVotes={ votes } waitForAsync={waitForAsync} setWaitForAsync={setWaitForAsync}/>
+            <div class="individual-article-container">
+                <h2>{article.title}</h2>
+                <div>
+                    <p>
+                        {new Date(article.created_at).toUTCString()}
+                        <br />
+                        Author: {article.author}
+                        <br />
+                        Topic: {article.topic}
+                    </p>
+                    <IndividualArticleVotes articleID = { articleID } initialVotes={ votes } waitForAsync={waitForAsync} setWaitForAsync={setWaitForAsync}/>
+                </div>
+                <img src={article.article_img_url} />
+                <p>{article.body}</p>
             </div>
-            <img src={article.article_img_url} />
-            <p>{article.body}</p>
             </>
         )
     }

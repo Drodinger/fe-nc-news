@@ -20,8 +20,10 @@ export default function LoginButton() {
     } else {
         return (
             <>
-                <p>{user}</p>
-                <button onClick={handleLogoutClick} >Logout</button>
+                <div class="nav-right">
+                    <p>User: {user}</p>
+                    <button onClick={handleLogoutClick} >Logout</button>
+                </div>
             </>
         )
     }

@@ -11,12 +11,14 @@ function App() {
     return (
         <>
             <div className="nav-bar">
-                <Link to='/' relative='path' >
-                    <img src={NCLogo} alt="North Coders logo" className="nav-logo" />
-                </Link>
-                <Link to='/' relative='path' >
-                    <h1>NC News</h1>
-                </Link>
+                <div className="nav-left">
+                    <Link to='/' relative='path' >
+                        <img src={NCLogo} alt="North Coders logo" className="nav-logo" />
+                    </Link>
+                    <Link to='/' relative='path' >
+                        <h1>NC News</h1>
+                    </Link>
+                </div>
                 <LoginButton />
             </div>
             <Routes>
