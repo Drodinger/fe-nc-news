@@ -46,7 +46,7 @@ export default function Login() {
     } else {
         return (
             <>
-                <h2>Log in:</h2>
+                <h2>Log in</h2>
                 <div className="error-hidden" ref={loginErr}>
                     <p>Error: User does not exist</p>
                 </div>

@@ -58,9 +58,11 @@ export default function IndividualArticleVotes(props) {
     return (
         <>
             <div>
-            <p onClick={handleUserVote}>+</p>
-            <p>{votes} votes</p>
-            <p onClick={handleUserVote}>-</p>
+            <p>
+                <button onClick={handleUserVote} alt="Upvote">+</button>
+                <span class="votes-card">{votes} votes</span>
+                <button onClick={handleUserVote} alt="Downvote">-</button>
+                </p>
             <div className="error-hidden" ref={voteErr}>
                 <p>Error: Vote not counted</p>
             </div>
